@@ -2,12 +2,12 @@
 Aplicativo simples para uma biblioteca desenvolvido em ECMA SCRIPT 6
 
 ### Caixas de Diálogo
-- [] prompt.
-- [] alert
-- [] confirm
+- [ ] prompt.
+- [ ] alert
+- [ ] confirm
 ### Temporizadores
-- [] setInterval
-- [] setTimeout
+- [ ] setInterval
+- [ ] setTimeout
 ### Funções
 - [] Função anônima com argumento
 - [] Função anônima sem argumento
