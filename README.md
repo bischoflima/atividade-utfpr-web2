@@ -2,7 +2,7 @@
 Aplicativo simples para uma biblioteca desenvolvido em ECMA SCRIPT 6
 
 ### Caixas de Diálogo
-- [] prompt
+- [] prompt.
 - [] alert
 - [] confirm
 ### Temporizadores
