@@ -9,19 +9,19 @@
 ![Página Home](https://github.com/bischoflima/biblioteca.saber/blob/main/wireframes/imagens-wireframes/home.png)
 
 #### Página de livros
-![Página de Login](https://github.com/bischoflima/biblioteca.saber/blob/main/wireframes/imagens-wireframes/livros.png)
+![Página de livros](https://github.com/bischoflima/biblioteca.saber/blob/main/wireframes/imagens-wireframes/livros.png)
 
 #### Página edita e adiciona livros
-![Página de Login](https://github.com/bischoflima/biblioteca.saber/blob/main/wireframes/imagens-wireframes/edit-add-livro.png)
+![Página de adiciona livro](https://github.com/bischoflima/biblioteca.saber/blob/main/wireframes/imagens-wireframes/edit-add-livro.png)
 
 #### Página de alunos
-![Página de Login](https://github.com/bischoflima/biblioteca.saber/blob/main/wireframes/imagens-wireframes/alunos.png)
+![Página de alunos](https://github.com/bischoflima/biblioteca.saber/blob/main/wireframes/imagens-wireframes/alunos.png)
 
 #### Página edita e adiciona alunos
-![Página de Login](https://github.com/bischoflima/biblioteca.saber/blob/main/wireframes/imagens-wireframes/edit-add-alunos.png)
+![Página de adiciona alunos](https://github.com/bischoflima/biblioteca.saber/blob/main/wireframes/imagens-wireframes/edit-add-aluno.png)
 
 #### Página de livros emprestados
-![Página de Login](https://github.com/bischoflima/biblioteca.saber/blob/main/wireframes/imagens-wireframes/emprestar.png)
+![Página de emprestar](https://github.com/bischoflima/biblioteca.saber/blob/main/wireframes/imagens-wireframes/emprestar.png)
 
 #### Página de novo emprestimo
-![Página de Login](https://github.com/bischoflima/biblioteca.saber/blob/main/wireframes/imagens-wireframes/novo-emprestimo.png)
+![Página de novo emprestimo](https://github.com/bischoflima/biblioteca.saber/blob/main/wireframes/imagens-wireframes/novo-emprestimo.png)
