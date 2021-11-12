@@ -1,12 +1,77 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <link rel="stylesheet" href="assets/libraries/materialize/materialize/css/materialize.min.css">
+    <link rel="stylesheet" href="assets/libraries/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="assets/resources/styles/commom.css">
+    <title>Biblioteca do Saber</title>
 </head>
-<body>
-    
+
+<body class="grey darken-4">
+    <!-- CABEÇALHO -->
+    <nav class="grey darken-4 yellow-text text-darken-1 center">
+        <div class="nav-wrapper">
+            <span class="fas fa-book-open icone-logo"></span>
+            <span id="logo">&nbsp;&nbsp;BIBLIOTECA DO SABER&nbsp;&nbsp;</span>
+            <span class="fas fa-feather-alt icone-logo"></span>
+        </div>
+    </nav>
+
+    <!--CORPO-->
+    <main class="yellow lighten-4">
+
+        <div id="botoes" class="container">
+            <div class="row">
+                <button onclick="redireciona(this)"
+                    class="waves-effect waves-light btn-large grey darken-4 col l5 s12 yellow-text text-darken-2 botao">
+                    <span class="fas fa-book-open icone-botao "></span> &nbsp; Livros </button>
+
+                <button onclick="redireciona(this)"
+                    class="waves-effect waves-light btn-large col l5 s12 botao grey darken-4 yellow-text text-darken-2 ">
+                    <span class="fas fa-user-graduate icone-botao"></span> &nbsp; Alunos</button>
+
+                <button onclick="redireciona(this)"
+                    class="waves-effect waves-light btn-large col l5 s12 botao grey darken-4 yellow-text text-darken-2 ">
+                    <span class="fas fa-thumbs-up icone-botao"></span> &nbsp; Emprestar</button>
+
+                <button onclick="sair()"
+                    class="waves-effect waves-light btn-large col l5 s12 botao grey darken-4 yellow-text text-darken-2">
+                    <span class="fas fa-book-open icone-botao"></span> &nbsp; Sair</button>
+            </div>
+        </div>
+
+    </main>
+
+
+    <!-- RODAPÉ -->
+    <footer class="page-footer grey darken-4 center yellow-text text-darken-1">
+        <div class="container">
+            Biblioteca do Saber © 2021 todos os direitos reservados
+        </div>
+        <div class="container">
+
+            <span class="icone-rodape">
+                <a class="center fab fa-facebook-square"></a>
+            </span>
+
+            <span class="icone-rodape">
+                <a class="center fab fa-github-square"></a>
+            </span>
+
+            <span class="icone-rodape">
+                <a class="center fab fa-linkedin"></a>
+            </span>
+        </div>
+    </footer>
+
+    <script src="assets/libraries/materialize/materialize/js/materialize.min.js"></script>
+    <script src="assets/libraries/fontawesome/js/all.min.js"></script>
+    <script src="assets/resources/scripts/common.js"></script>
+    <script src="assets/resources/scripts/home.js"></script>
 </body>
+
 </html>

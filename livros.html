@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/libraries/materialize/materialize/css/materialize.min.css">
+    <link rel="stylesheet" href="assets/libraries/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="assets/resources/styles/commom.css">
+    <link rel="stylesheet" href="assets/resources/styles/livros.css">
+    <title>Biblioteca do Saber</title>
+</head>
+
+<body class="grey darken-4" onload="estilizaItensLista()">
+    <!-- CABEÇALHO -->
+    <nav class="grey darken-4 yellow-text text-darken-1 center">
+        <div class="nav-wrapper">
+            <span class="fas fa-book-open icone-logo"></span>
+            <span id="logo">&nbsp;BIBLIOTECA DO SABER&nbsp;</span>
+            <span class="fas fa-feather-alt icone-logo"></span>
+        </div>
+    </nav>
+
+    <!--CORPO-->
+    <main class="yellow lighten-4">
+        <h4>Livros</h4>
+        
+        <div class="botoes-de-controle">
+            <button class="fas fa-plus-circle botao-controle yellow darken-2 waves-effect waves-light"></button>
+            <button class="fas fa-minus-circle botao-controle yellow darken-2 waves-effect waves-light"></button>
+            <button class="fas fa-times-circle botao-controle yellow darken-2 waves-effect waves-light"></button>
+        </div>
+
+        <div id="listagem-livros" class="grey darken-4 ">
+            <ul>
+                <li class="itens-lista">Nenhum livro encontrado</li>
+                <li class="itens-lista">Nenhum livro encontrado</li>
+                <li class="itens-lista">Nenhum livro encontrado</li>
+            </ul>
+        </div>
+
+        <a class="waves-effect waves-light btn-large voltar grey-text yellow darken-2 text-darken-4 voltar">Voltar</a>
+
+    </main>
+
+
+    <!-- RODAPÉ -->
+    <footer class="page-footer grey darken-4 center yellow-text text-darken-1">
+        <div class="container">
+            Biblioteca do Saber © 2021 todos os direitos reservados
+        </div>
+        <div class="container">
+
+            <span class="icone-rodape">
+                <a class="center fab fa-facebook-square"></a>
+            </span>
+
+            <span class="icone-rodape">
+                <a class="center fab fa-github-square"></a>
+            </span>
+
+            <span class="icone-rodape">
+                <a class="center fab fa-linkedin"></a>
+            </span>
+        </div>
+    </footer>
+
+    <script src="assets/libraries/materialize/materialize/js/materialize.min.js"></script>
+    <script src="assets/resources/scripts/common.js"></script>
+    <script src="assets/libraries/fontawesome/js/all.min.js"></script>
+    <script src="assets/resources/scripts/livros.js"></script>
+</body>
+
+</html>

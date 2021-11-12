@@ -1,0 +1,75 @@
+#logo {
+    border-top: solid 2px;
+    border-bottom: solid 2px;
+    font-size: 2em;
+    transition: 0.5s;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+
+    font-family: 'Poppins', 'sans';
+}
+
+main {
+    flex: 1 0 auto;
+    width: 85%;
+    margin: 0 auto;
+    border-radius: 5px;
+    text-align: center;
+}
+
+i {
+    margin: 0 15px 25px 0;
+}
+
+.icone-logo {
+    font-size: 2em;
+}
+
+.icone-botao {
+    font-size: 2em;
+    vertical-align: middle;
+}
+
+.botao {
+    margin: 1em;
+    padding-top: 1em;
+    height: 100px;
+    border-radius: 9px;
+    font-size: 2em;
+}
+
+.voltar {
+    border-radius: 10px;
+    border: 1px solid black;
+    font-size: large;
+    margin: 0.5em auto;
+}
+
+@media only screen and (max-width: 490px) {
+    #logo {
+        transition: 0.5s;
+        font-size: 1.8em;
+    }
+}
+
+@media only screen and (max-width: 460px) {
+    #logo {
+        font-size: 1.5em;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    #logo {
+        font-size: 1.2em;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    #logo {
+        font-size: 1em;
+    }
+}

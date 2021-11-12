@@ -1,0 +1,17 @@
+.botoes-de-controle {
+    text-align: center;
+
+}
+.botao-controle {
+    font-size: 4em;
+    margin: 5px 0.2em;
+    border-radius: 50px;
+}
+
+#listagem-livros {
+    width: 95%;
+    margin: 0 auto;
+    padding: 3px 0;
+    border-radius: 10px;
+    text-align: center;
+}
