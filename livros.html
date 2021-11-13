@@ -25,12 +25,16 @@
     <!--CORPO-->
     <main class="yellow lighten-4">
         <h4>Livros</h4>
-        
+
         <div class="botoes-de-controle">
-            <button class="fas fa-plus-circle botao-controle yellow darken-2 waves-effect waves-light"></button>
+            <button data-target="addlivro"
+                class="fas fa-plus-circle botao-controle yellow darken-2 waves-effect waves-light modal-trigger"
+                href="#addlivro"></button>
             <button class="fas fa-minus-circle botao-controle yellow darken-2 waves-effect waves-light"></button>
             <button class="fas fa-times-circle botao-controle yellow darken-2 waves-effect waves-light"></button>
         </div>
+
+
 
         <div id="listagem-livros" class="grey darken-4 ">
             <ul>
@@ -42,7 +46,74 @@
 
         <a class="waves-effect waves-light btn-large voltar grey-text yellow darken-2 text-darken-4 voltar">Voltar</a>
 
+
+
+        <!-- Modal cadastro de livro -->
+        <div id="addlivro" class="modal grey darken-4 yelow-text text-darken-4">
+            <div class="modal-content">
+                <h4 class="yellow-text ">Cadastro de Livro</h4>
+
+                <div class="row">
+                    <form class="col s12">
+
+                        <div class="row">
+                            <div class="input-field col s12 l12 yellow lighten-4">
+                                <input id="id_livro" type="text" disabled class="validate">
+                                <label for="id_livro" class="yellow-text text-darken-2">ID Livro</label>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s12 l12 yellow lighten-4">
+                            <input id="nome_livro" type="text" class="validate">
+                                <label for="nome_livro" class="yellow-text text-darken-2">Nome</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s12 l12 yellow lighten-4">
+                                <input id="autor_livro" type="text" class="validate">
+                                <label for="autor_livro" class="yellow-text text-darken-2">Autor</label>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s12 l12 yellow lighten-4">
+                                <input id="genero" type="text" class="validate">
+                                <label for="genero_livro" class="yellow-text text-darken-2">Gênero</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s6 l6 yellow lighten-4 left">
+                                <input id="quantidade_total" type="number" class="validate">
+                                <label for="quantidade_total" class="yellow-text text-darken-2">Quantidade Total</label>
+                            </div>
+
+                            <div class="input-field col s5 l5 yellow lighten-4 right">
+                                <input id="quantidade_disponivel" type="number" class="validate">
+                                <label for="quantidade_disponivel" class="yellow-text text-darken-2">Disponível</label>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+                <div class="modal-footer grey darken-4 yelow-text text-darken-4 center row">
+                    <a href="#!" id="btncancelar"
+                        class="modal-close waves-effect waves-grey btn-flat grey darken-4 yellow-text text-darken-1 col s5 l2 btnmodal right">cancelar</a>
+                    <a href="#!" id="btnconfirmar"
+                        class="modal-close waves-effect waves-grey btn-flat yellow darken-2 grey-text text-darken-4 col s6 l3 btnmodal right">confirmar</a>
+                </div>
+            </div>
+
+        </div>
+
+
     </main>
+
 
 
     <!-- RODAPÉ -->
@@ -66,10 +137,14 @@
         </div>
     </footer>
 
+
     <script src="assets/libraries/materialize/materialize/js/materialize.min.js"></script>
     <script src="assets/resources/scripts/common.js"></script>
     <script src="assets/libraries/fontawesome/js/all.min.js"></script>
+    <script src="assets/libraries/jquery/jquery.js"></script>
+    <script src="assets/resources/scripts/bdLivro.js"></script>
     <script src="assets/resources/scripts/livros.js"></script>
+
 </body>
 
 </html>

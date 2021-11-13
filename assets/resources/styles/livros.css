@@ -15,3 +15,32 @@
     border-radius: 10px;
     text-align: center;
 }
+
+.btnmodal {
+    border: solid yellow 1px;
+    border-radius: 10px;
+    font-size: 1.1em;
+    text-align: center;
+}
+
+#btncancelar {
+    margin-left: 5px;
+}
+
+.input-field {
+    border-radius: 8px;
+}
+
+.modal {
+    border: solid rgb(226, 226, 93) 1px;
+    border-radius: 10px;
+    width: 30%;
+    text-align: center;
+}
+
+@media only screen and (max-width: 490px) {
+    .modal {
+        width: 90%;
+        text-align: center;
+    }
+}
