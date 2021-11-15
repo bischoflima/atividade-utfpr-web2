@@ -18,7 +18,7 @@ let iniciaFimSessao = function () {
 
 
         alert('sessão expirada');
-        location.href = 'login.html';
+        location.href = 'index.html';
 
     }, minutoFinalizaSessao);
 
@@ -32,7 +32,7 @@ document.addEventListener('mousemove', function () {
 });
 
 
-if (location.href != 'login.html') {
+if (location.href != 'index.html') {
     intervalo = setInterval(() => {
 
         minutosParados += minutoIncremento;
