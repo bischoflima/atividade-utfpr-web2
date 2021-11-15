@@ -1,85 +1,63 @@
-class Bdusuarios {
+class BdUsuarios {
 
     constructor() {
-        let idusuario = localStorage.getItem('idusuario');
+        let idUsuario = localStorage.getItem('idUsuario');
 
-        if (idusuario === null) {
-            localStorage.setItem('idusuario', 0);
+        if (idUsuario === null) {
+            localStorage.setItem('idUsuario', 10);
+            this.gravar({
+                _nome: 'admin',
+                _senha: 'admin'
+            })
         }
     }
 
     getProximoId() {
-        let proximoidusuario = localStorage.getItem('idusuario');
-        return parseInt(proximoidusuario) + 1;
+        let proximoidUsuario = localStorage.getItem('idUsuario');
+        return parseInt(proximoidUsuario) + 1;
     }
 
     gravar(usuario) {
-        let idusuario = this.getProximoId();
-        localStorage.setItem('idusuario', idusuario);
-        localStorage.setItem(idusuario, JSON.stringify(usuario));
+        let idUsuario = this.getProximoId();
+
+        if (idUsuario < 50) {
+            localStorage.setItem('idUsuario', idUsuario);
+            localStorage.setItem(idUsuario, JSON.stringify(usuario));
+        } else {
+            alert('Limite máximo de usuários cadastrados');
+        }
     }
 
     recuperarTodosRegistros() {
-        let qtdRegistros = parseInt(localStorage.getItem('idusuario'));
+        let qtdRegistros = parseInt(localStorage.getItem('idUsuario'));
         let usuarios = [];
 
-        for (let i = 1; i <= qtdRegistros; i++) {
+        for (let i = 11; i <= qtdRegistros; i++) {
             if (localStorage.getItem(i) === null)
                 continue;
             let usuario = JSON.parse(localStorage.getItem(i));
-            usuario.idusuario = i;
+            usuario.idUsuario = i;
             usuarios.push(usuario);
         }
         return usuarios;
     }
 
-    removerRegistro(idusuario = undefined) {
-        if (idusuario) {
-            localStorage.removeItem(`${idusuario}`);
+    removerRegistro(idUsuario = undefined) {
+        if (idUsuario) {
+            localStorage.removeItem(`${idUsuario}`);
         }
     }
 
     pesquisar(usuario) {
 
-        let usuariosFiltradas = this.recuperarTodosRegistros();
-        // filter de ano, mes, dia, tipo, descricao, valor
+        let todosUsuarios = this.recuperarTodosRegistros();
+        let usuariosFiltradas;
 
-        if (usuario._ano != '') {
-            usuariosFiltradas = usuariosFiltradas.filter((d) => {
-                return d._ano == usuario._ano
+        if (usuario._nome != '') {
+            usuariosFiltradas = todosUsuarios.filter((d) => {
+                return d._nome == usuario._nome
             });
         }
-
-        if (usuario._dia != '') {
-            usuariosFiltradas = usuariosFiltradas.filter((d) => {
-                return d._dia == usuario._dia
-            });
-        }
-
-        if (usuario._mes != '') {
-            usuariosFiltradas = usuariosFiltradas.filter((d) => {
-                return d._mes == usuario._mes
-            });
-        }
-
-        if (usuario._tipo != '') {
-            usuariosFiltradas = usuariosFiltradas.filter((d) => {
-                return d._tipo == usuario._tipo
-            })
-        }
-
-        if (usuario._valor != '') {
-            usuariosFiltradas = usuariosFiltradas.filter((d) => {
-                return d._valor == usuario._valor
-            });
-        }
-
-        if (usuario._descricao != '') {
-            usuariosFiltradas = usuariosFiltradas.filter((d) => {
-                return d._descricao == usuario._descricao
-            })
-        }
-
 
         return usuariosFiltradas;
     }

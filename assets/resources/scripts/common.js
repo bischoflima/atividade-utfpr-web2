@@ -9,6 +9,7 @@ let minutoIncremento = 30000;
 let minutoFinal = 180000;
 let minutoFinalizaSessao = 25000;
 
+/**
 let iniciaFimSessao = function () {
 
     clearInterval(intervalo);
@@ -44,3 +45,4 @@ if (location.href != 'index.html') {
 
     }, 5000);
 }
+**/

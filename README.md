@@ -4,32 +4,32 @@ Aplicativo simples para uma biblioteca desenvolvido em ECMA SCRIPT 6
 # __AVALIAÇÃO 1__
 
 ### Caixas de Diálogo
-- [ ] prompt.
-- [ ] alert
+- [x] prompt
+- [x] alert
 - [x] confirm
 ### Temporizadores
-- [ ] setInterval
-- [ ] setTimeout
+- [x] setInterval
+- [x] setTimeout
 ### Funções
 - [x] Função anônima com argumento
-- [ ] Função anônima sem argumento
+- [x] Função anônima sem argumento
 - [x] Função anônima com retorno
-- [ ] Função auto-executável - não será aceita a mesma do Module Pattern
+- [x] Função auto-executável - não será aceita a mesma do Module Pattern
 - [x] Função com nome
 - [x] Função aninhada/local - declarar uma função dentro de outra
-- [ ] Passagem de uma função como parâmetro para outra função - ambas as funções precisam ser implementadas pelo aluno
+- [x] Passagem de uma função como parâmetro para outra função - ambas as funções precisam ser implementadas pelo aluno
 - [x] Função Flecha - Arrow Function 
 ### Eventos
 - [x] Evento de carregamento do documento - onload
-- [ ] Evento de movimento do mouse
-- [ ] Evento de teclado - usar charCode ou keyCode
-- [ ] Eventos de formulário - usar onfocus e onblur
+- [x] Evento de movimento do mouse
+- [x] Evento de teclado - usar charCode ou keyCode
+- [x] Eventos de formulário - usar onfocus e onblur
 - [ ] Imprimir alguma propriedade/atributo do objeto event recebido como parâmetro na função tratadora de evento
 - [ ] Propagação de eventos no modelo bolha (usar target e currentTarget, ou seja, disparar o evento em um elemento filho e capturar em um elemento pai)
 ### Acesso aos elementos DOM do HTML
 - [x] Via referência DOM pelo id do elemento HTML - acesso sem uso do getElementByID ou querySelector, o id do objeto DOM é o próprio nome da variável
 - [x] Via getElementByID()
-- [ ] Via getElementsByName()
+- [x] Via getElementsByName()
 - [x] Via getElementsByTagName()
 - [x] Via seletores CSS usados na função querySelector() ou querySelectorAll()
 ### Tratadores de Evento
@@ -38,15 +38,21 @@ Aplicativo simples para uma biblioteca desenvolvido em ECMA SCRIPT 6
 - [x] Especificar o tratador de evento com a função addEventListener - registro do evento no JS
 - [x] Usar o operador this em funções tratadoras de eventos.
 ### Objetos Nativos
-- [ ] Usar pelo menos 3 métodos de manipulação de array
+- [x] Usar pelo menos 3 métodos de manipulação de array
+    - [x] forEach
+    - [x] push
+    - [x] filter
 - [x] Usar laço de repetição (for..in ou for..of ou forEach)
 - [x] Usar pelo menos 3 métodos para manipulação de string
+    - [x] trim
+    - [x] toLowerCase
+    - [x] filter
 - [x] String Template - a String com crase e ${} 
 - [x] Manipulação do CSS de forma nativa via atributo style e classList
 ### Objetos
-- [ ] Criar objeto usando função construtora ou notação literal
-- [ ] Criar objetos a partir da definição de classes do ES6 - a classe precisa ser definida em arquivo separado, sendo o nome do arquivo em letras minúsculas no estilo dashed-case e nome da classe em UpperCamelCase
-- [ ] Usar herança prototipal nativa ou herança de classes do ES6
+- [x] Criar objeto usando função construtora ou notação literal
+- [x] Criar objetos a partir da definição de classes do ES6 - a classe precisa ser definida em arquivo separado, sendo o nome do arquivo em letras minúsculas no estilo dashed-case e nome da classe em UpperCamelCase
+- [x] Usar herança prototipal nativa ou herança de classes do ES6
 
 # __AVALIAÇÃO 2__
 
