@@ -4,24 +4,12 @@ function sair() {
 
 }
 
-function novoUsuario() {
-
-    //deve lançar um modal com os usuarios cadastrados
-
-    let usuario = new Usuario(dadosUsuario());
-
-    let bdUsuarios = new BdUsuarios();
-    bdUsuarios.gravar( usuario);
-    console.log(usuario);
-
-    console.log(bdUsuarios.recuperarTodosRegistros());
-}
-
 function digitaSenha() {
     let senhaUsuario = prompt('Digite a senha desejada:');
     let confirmaSenha = prompt('Confirme a senha digitada:');
 
     if (senhaUsuario != confirmaSenha) {
+        console.log('onde nao devia');
         alert('AS SENHAS NÂO COINCIDEM, digite novamente.');
         digitaSenha();
     }
@@ -37,4 +25,15 @@ function dadosUsuario() {
         nome: `${nomeUsuario}`,
         senha: `${senha}`
     }
+}
+
+function novoUsuario() {
+
+    /**TODO deve lançar um modal com os usuarios cadastrados */
+    let dados = dadosUsuario();
+
+    let usuario = new Usuario(dados.nome, dados.senha);
+
+    let bdUsuarios = new BdUsuarios();
+    bdUsuarios.gravar(usuario);
 }
