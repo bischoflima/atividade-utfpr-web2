@@ -13,7 +13,7 @@ function geraUsuario(usuario, senha) {
     return new Usuario(usuario(), senha());
 }
 
-(function daFocoUser() {
+(function () {
     document.getElementById('user').focus();
 })();
 
@@ -63,13 +63,18 @@ function usuarioValido() {
 
 function fazLogin() {
     if (usuarioValido()) location.href = 'home.html'
-    else alert('Usuário ou senha incorreta');
+    else {
+        alert('Usuário ou senha incorreta');
+        document.getElementById('user').focus();
+    }
 }
 
-document.getElementsByName('confirmar')[0].onclick =  fazLogin;
+document.getElementsByName('confirmar')[0].onclick = fazLogin;
 
-document.addEventListener('keypress', function(event) {
-   if(event.keyCode == 13){
+document.addEventListener('keypress', function (event) {
+    if (event.keyCode == 13) {
+
+        console.log(event.code);
         fazLogin();
-   }
+    }
 });

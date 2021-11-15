@@ -24,7 +24,7 @@ Aplicativo simples para uma biblioteca desenvolvido em ECMA SCRIPT 6
 - [x] Evento de movimento do mouse
 - [x] Evento de teclado - usar charCode ou keyCode
 - [x] Eventos de formulário - usar onfocus e onblur
-- [ ] Imprimir alguma propriedade/atributo do objeto event recebido como parâmetro na função tratadora de evento
+- [x] Imprimir alguma propriedade/atributo do objeto event recebido como parâmetro na função tratadora de evento
 - [ ] Propagação de eventos no modelo bolha (usar target e currentTarget, ou seja, disparar o evento em um elemento filho e capturar em um elemento pai)
 ### Acesso aos elementos DOM do HTML
 - [x] Via referência DOM pelo id do elemento HTML - acesso sem uso do getElementByID ou querySelector, o id do objeto DOM é o próprio nome da variável
