@@ -1,80 +1,99 @@
+/*jshint esversion: 6 */
+
 let bdUsuario = new BdUsuarios();
 let usuario;
 
 let campoUsuario = function () {
-    return document.getElementById('user').value.trim().toLowerCase();
-}
+  'use strict';
+
+  return document.getElementById('user').value.trim().toLowerCase();
+};
 
 let campoSenha = function () {
-    return document.getElementById('senha').value.trim().toLowerCase();
-}
+  'use strict';
 
-function geraUsuario(usuario, senha) {
-    return new Usuario(usuario(), senha());
+  return document.getElementById('senha').value.trim().toLowerCase();
+};
+
+function GeraUsuario(usuario, senha) {
+  'use strict';
+
+  return new Usuario(usuario(), senha());
 }
 
 (function () {
-    document.getElementById('user').focus();
+  'use strict';
+
+  document.getElementById('user').focus();
 })();
 
 document.getElementById('user').onblur = function () {
+  'use strict';
 
-    if (this.value != '') {
-        this.classList.remove('invalid');
-        this.classList.add('valid');
-    } else {
-        this.classList.remove('valid');
-        this.classList.add('invalid');
-    }
+  if (this.value !== '') {
+    this.classList.remove('invalid');
+    this.classList.add('valid');
+  } else {
+    this.classList.remove('valid');
+    this.classList.add('invalid');
+  }
 };
 
 document.getElementById('senha').onblur = function () {
+  'use strict';
 
-    if (this.value != '') {
-        this.classList.remove('invalid');
-        this.classList.add('valid');
-    } else {
-        this.classList.remove('valid');
-        this.classList.add('invalid');
-    }
+  if (this.value !== '') {
+    this.classList.remove('invalid');
+    this.classList.add('valid');
+  } else {
+    this.classList.remove('valid');
+    this.classList.add('invalid');
+  }
+  
 };
 
 function usuarioValido() {
+  'use strict';
 
-    let usuario = new geraUsuario(campoUsuario, campoSenha);
+  let usuario = new GeraUsuario(campoUsuario, campoSenha);
+  let usuariosBuscados = bdUsuario.pesquisar(usuario);
+  let valido = false;
 
-    let usuariosBuscados = bdUsuario.pesquisar(usuario);
+  if (usuariosBuscados) {
 
-    let valido = false;
+    usuariosBuscados.forEach((usuarioForEach) => {
 
-    if (usuariosBuscados) {
+      console.log('antes foreach equals');
 
-        usuariosBuscados.forEach((usuarioForEach) => {
+      if (usuario.isEquals(usuarioForEach)) valido = true;
+    });
 
-            console.log('antes foreach equals');
+  }
 
-            if (usuario.isEquals(usuarioForEach))
-                valido = true;
-        });
-    }
 
-    return valido;
+  return valido;
 }
 
 function fazLogin() {
-    if (usuarioValido()) location.href = 'home.html'
-    else {
-        alert('Usuário ou senha incorreta');
-        document.getElementById('user').focus();
-    }
+  'use strict';
+
+  if (usuarioValido()) location.href = 'home.html';
+  else {
+    window.alert('Usuário ou senha incorreta');
+    document.getElementById('user').focus();
+  }
+
 }
 
 document.getElementsByName('confirmar')[0].onclick = fazLogin;
 
 document.addEventListener('keypress', function (event) {
-    if (event.keyCode == 13) {
+  'use strict';
 
-        console.log(event.code);
-        fazLogin();
-    }
+  if (event.keyCode === 13) {
+    console.log(event.keyCode);
+
+    fazLogin();
+  }
+
 });

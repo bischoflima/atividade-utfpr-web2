@@ -1,86 +1,118 @@
+/*jshint esversion: 6 */
+
 class BdLivros {
 
-    constructor() {
-        let idLivro = localStorage.getItem('idLivro');
+  constructor() {
 
-        if (idLivro === null) {
-            localStorage.setItem('idLivro', 0);
-        }
+    let bdLivro = localStorage.getItem('bdLivro');
+
+    if (bdLivro == null) {
+      localStorage.setItem('bdLivro');
     }
 
-    getProximoId() {
-        let proximoidLivro = localStorage.getItem('idLivro');
-        return parseInt(proximoidLivro) + 1;
+  }
+
+  gravarLivroInicial(livro) {
+    this.todosLivros = this.recuperarTodosRegistros();
+
+    if (!this.todosLivros) {
+      this.todosLivros = [];
+
+      this.todosLivros.push(new Livro(livro._nome, livro._autor, livro._genero, livro._qtdTot));
     }
 
-    gravar(livro) {
-        let idLivro = this.getProximoId();
-        localStorage.setItem('idLivro', idLivro);
-        localStorage.setItem(idLivro, JSON.stringify(livro));
+    localStorage.setItem('bdLivro', JSON.stringify(this.todosLivros));
+
+  }
+
+  livroExiste(livro) {
+
+    this.todosLivros = this.recuperarTodosRegistros();
+
+    for (let elemento of this.todosLivros) {
+
+      if (livro._nome === elemento._nome) {
+        return true;
+      }
+
     }
 
-    recuperarTodosRegistros() {
-        let qtdRegistros = parseInt(localStorage.getItem('idLivro'));
-        let livros = [];
+    return false;
 
-        for (let i = 1; i <= qtdRegistros; i++) {
-            if (localStorage.getItem(i) === null)
-                continue;
-            let livro = JSON.parse(localStorage.getItem(i));
-            livro.idLivro = i;
-            livros.push(livro);
-        }
-        return livros;
+  }
+
+  gravar(livro) {
+
+    this.todosLivros = this.recuperarTodosRegistros();
+
+    if (!this.livroExiste(livro) && this.todosLivros) {
+      this.todosLivros.push(livro);
+      localStorage.setItem('bdLivro', JSON.stringify(this.todosLivros));
+
+      return true;
     }
 
-    removerRegistro(idLivro = undefined) {
-        if (idLivro) {
-            localStorage.removeItem(`${idLivro}`);
-        }
+    return false;
+
+  }
+
+  recuperarTodosRegistros() {
+
+    let livros = [];
+
+    if (!localStorage.getItem('bdLivro'))
+      return false;
+
+    JSON.parse(localStorage.getItem('bdLivro')).forEach((user) => {
+
+      livros.push(new Livro(user._nome, user._senha));
+
+    });
+
+    return livros;
+
+  }
+
+  removerRegistro(livro = undefined) {
+    // FIXME: criar a remoção de registros
+  }
+
+  pesquisar(livro) {
+
+    let livrosFiltradas = this.recuperarTodosRegistros();
+
+    if (livro._nome !== '') {
+      livrosFiltradas = livrosFiltradas.filter((d) => {
+        return d._nome === livro._nome;
+      });
     }
 
-    pesquisar(livro) {
-
-        let livrosFiltradas = this.recuperarTodosRegistros();
-        // filter de ano, mes, dia, tipo, descricao, valor
-
-        if (livro._ano != '') {
-            livrosFiltradas = livrosFiltradas.filter((d) => {
-                return d._ano == livro._ano
-            });
-        }
-
-        if (livro._dia != '') {
-            livrosFiltradas = livrosFiltradas.filter((d) => {
-                return d._dia == livro._dia
-            });
-        }
-
-        if (livro._mes != '') {
-            livrosFiltradas = livrosFiltradas.filter((d) => {
-                return d._mes == livro._mes
-            });
-        }
-
-        if (livro._tipo != '') {
-            livrosFiltradas = livrosFiltradas.filter((d) => {
-                return d._tipo == livro._tipo
-            })
-        }
-
-        if (livro._valor != '') {
-            livrosFiltradas = livrosFiltradas.filter((d) => {
-                return d._valor == livro._valor
-            });
-        }
-
-        if (livro._descricao != '') {
-            livrosFiltradas = livrosFiltradas.filter((d) => {
-                return d._descricao == livro._descricao
-            })
-        }
-
-
-        return livrosFiltradas;
+    if (livro.autor !== '') {
+      livrosFiltradas = livrosFiltradas.filter((d) => {
+        return d.autor === livro.autor;
+      });
     }
+
+    if (livro._genero !== '') {
+      livrosFiltradas = livrosFiltradas.filter((d) => {
+        return d._genero === livro._genero;
+      });
+    }
+
+    if (livro._qtdTot !== '') {
+      livrosFiltradas = livrosFiltradas.filter((d) => {
+        return d._qtdTot === livro._qtdTot;
+      });
+    }
+
+    if (livro._qtdDisp !== '') {
+      livrosFiltradas = livrosFiltradas.filter((d) => {
+        return d._qtdDisp === livro._qtdDisp;
+      });
+    }
+
+    return livrosFiltradas;
+
+  }
+  
 }

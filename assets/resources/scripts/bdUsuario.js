@@ -1,64 +1,102 @@
+/*jshint esversion: 6 */
+
 class BdUsuarios {
 
-    constructor() {
-        let idUsuario = localStorage.getItem('idUsuario');
+  constructor() {
+    let bdUsuario = localStorage.getItem('bdUsuario');
+    let todosUsuarios;
 
-        if (idUsuario === null) {
-            localStorage.setItem('idUsuario', 10);
-            this.gravar({
-                _nome: 'admin',
-                _senha: 'admin'
-            })
-        }
+    if (!bdUsuario) {
+      this.gravarUsuarioInicial(this.usuarioPadrao());
     }
 
-    getProximoId() {
-        let proximoidUsuario = localStorage.getItem('idUsuario');
-        return parseInt(proximoidUsuario) + 1;
+  }
+
+  usuarioPadrao() {
+
+    return {
+      _nome: 'admin',
+      _senha: 'admin'
+    };
+
+  }
+
+  gravarUsuarioInicial(usuario) {
+    this.todosUsuarios = this.recuperarTodosRegistros();
+
+    if (!this.todosUsuarios) {
+      this.todosUsuarios = [];
+      this.todosUsuarios.push(new Usuario(usuario._nome, usuario._senha));
     }
 
-    gravar(usuario) {
-        let idUsuario = this.getProximoId();
+    localStorage.setItem('bdUsuario', JSON.stringify(this.todosUsuarios));
 
-        if (idUsuario < 50) {
-            localStorage.setItem('idUsuario', idUsuario);
-            localStorage.setItem(idUsuario, JSON.stringify(usuario));
-        } else {
-            alert('Limite máximo de usuários cadastrados');
-        }
+  }
+
+  usuarioExiste(usuario) {
+
+    this.todosUsuarios = this.recuperarTodosRegistros();
+
+    for (let elemento of this.todosUsuarios) {
+
+      if (usuario._nome === elemento._nome) {
+        return true;
+      }
+
     }
 
-    recuperarTodosRegistros() {
-        let qtdRegistros = parseInt(localStorage.getItem('idUsuario'));
-        let usuarios = [];
+    return false;
 
-        for (let i = 11; i <= qtdRegistros; i++) {
-            if (localStorage.getItem(i) === null)
-                continue;
-            let usuario = JSON.parse(localStorage.getItem(i));
-            usuario.idUsuario = i;
-            usuarios.push(usuario);
-        }
-        return usuarios;
+  }
+
+  gravar(usuario) {
+    this.todosUsuarios = this.recuperarTodosRegistros();
+
+    if (!this.usuarioExiste(usuario) && this.todosUsuarios) {
+      this.todosUsuarios.push(usuario);
+      localStorage.setItem('bdUsuario', JSON.stringify(this.todosUsuarios));
+
+      return true;
     }
 
-    removerRegistro(idUsuario = undefined) {
-        if (idUsuario) {
-            localStorage.removeItem(`${idUsuario}`);
-        }
+    return false;
+
+  }
+
+  recuperarTodosRegistros() {
+    let usuarios = [];
+
+    if (!localStorage.getItem('bdUsuario')) return false;
+
+    JSON.parse(localStorage.getItem('bdUsuario')).forEach((user) => {
+
+      usuarios.push(new Usuario(user._nome, user._senha));
+
+    });
+
+    return usuarios;
+
+  }
+
+  removerRegistro(usuario = undefined) {
+    if (usuario) {
+
+    }
+  }
+
+  pesquisar(usuario) {
+
+    let usuariosFiltradas;
+    this.todosUsuarios = this.recuperarTodosRegistros();
+
+
+    if (usuario._nome !== '') {
+      usuariosFiltradas = this.todosUsuarios.filter((d) => {
+        return d._nome === usuario._nome;
+      });
     }
 
-    pesquisar(usuario) {
-
-        let todosUsuarios = this.recuperarTodosRegistros();
-        let usuariosFiltradas;
-
-        if (usuario._nome != '') {
-            usuariosFiltradas = todosUsuarios.filter((d) => {
-                return d._nome == usuario._nome
-            });
-        }
-
-        return usuariosFiltradas;
-    }
+    return usuariosFiltradas;
+    
+  }
 }

@@ -1,39 +1,49 @@
-function sair() {
+/*jshint esversion: 6 */
 
-    if (confirm('Deseja mesmo sair? ')) location.href = 'index.html';
+let bdUsuarios = new BdUsuarios();
+
+function sair() {
+ 'use strict';
+
+  if (window.confirm('Deseja mesmo sair? ')) location.href = 'index.html';
 
 }
 
 function digitaSenha() {
-    let senhaUsuario = prompt('Digite a senha desejada:');
-    let confirmaSenha = prompt('Confirme a senha digitada:');
+  'use strict';
 
-    if (senhaUsuario != confirmaSenha) {
-        console.log('onde nao devia');
-        alert('AS SENHAS NÂO COINCIDEM, digite novamente.');
-        digitaSenha();
-    }
+  let senhaUsuario = window.prompt('Digite a senha desejada:');
+  let confirmaSenha = window.prompt('Confirme a senha digitada:');
 
-    return confirmaSenha;
+  if (senhaUsuario !== confirmaSenha) {
+    console.log('onde nao devia');
+    window.alert('AS SENHAS NÂO COINCIDEM, digite novamente.');
+    digitaSenha();
+  }
+
+  return confirmaSenha;
+  
 }
 
 function dadosUsuario() {
-    let nomeUsuario = prompt('Digite o nome do usuario:');
-    let senha = digitaSenha();
+  'use strict';
 
-    return {
-        nome: `${nomeUsuario}`,
-        senha: `${senha}`
-    }
+  let nomeUsuario = window.prompt('Digite o nome do usuario:');
+  let senha = digitaSenha();
+
+  return {
+    _nome: `${nomeUsuario}`,
+    _senha: `${senha}`
+  };
+
 }
 
 function novoUsuario() {
+ 'use strict';
 
-    /**TODO deve lançar um modal com os usuarios cadastrados */
-    let dados = dadosUsuario();
+  let dados = dadosUsuario();
+  let usuario = new Usuario(dados._nome, dados._senha);
 
-    let usuario = new Usuario(dados.nome, dados.senha);
+  if (!bdUsuarios.gravar(usuario)) window.alert('Já existe um usuário com este nome');
 
-    let bdUsuarios = new BdUsuarios();
-    bdUsuarios.gravar(usuario);
 }
