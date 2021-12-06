@@ -2,7 +2,6 @@
     text-align: center;
 
 }
-
 .botao-controle {
     font-size: 4em;
     margin: 5px 0.2em;
@@ -32,21 +31,11 @@
     border-radius: 8px;
 }
 
-td {
-    border: 1px solid;
-    border-radius: 10px;
-    border-color: black;
-}
-
 .modal {
     border: solid rgb(226, 226, 93) 1px;
     border-radius: 10px;
     width: 30%;
     text-align: center;
-}
-
-#seleciona-todos {
-    width: 30px;
 }
 
 @media only screen and (max-width: 490px) {

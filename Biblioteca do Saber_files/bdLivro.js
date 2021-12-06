@@ -7,7 +7,7 @@ class BdLivros {
     let bdLivro = localStorage.getItem('bdLivro');
 
     if (bdLivro == null) {
-      localStorage.setItem('bdLivro', '');
+      localStorage.setItem('bdLivro');
     }
 
   }
@@ -17,7 +17,10 @@ class BdLivros {
 
     if (!this.todosLivros) {
       this.todosLivros = [];
+
+      this.todosLivros.push(new Livro(livro._nome, livro._autor, livro._genero, livro._qtdTot, livro._qtdDisp));
     }
+
     localStorage.setItem('bdLivro', JSON.stringify(this.todosLivros));
 
   }
@@ -26,14 +29,13 @@ class BdLivros {
 
     this.todosLivros = this.recuperarTodosRegistros();
 
-    if (this.todosLivros)
-      for (let elemento of this.todosLivros) {
+    for (let elemento of this.todosLivros) {
 
-        if (livro._nome === elemento._nome) {
-          return true;
-        }
-
+      if (livro._nome === elemento._nome) {
+        return true;
       }
+
+    }
 
     return false;
 
@@ -46,13 +48,7 @@ class BdLivros {
     if (!this.livroExiste(livro) && this.todosLivros) {
       this.todosLivros.push(livro);
       localStorage.setItem('bdLivro', JSON.stringify(this.todosLivros));
-      return true;
-    }
 
-    if (!this.livroExiste(livro) && !this.todosLivros) {
-      this.todosLivros = [];
-      this.todosLivros.push(livro);
-      localStorage.setItem('bdLivro', JSON.stringify(this.todosLivros));
       return true;
     }
 
@@ -67,9 +63,9 @@ class BdLivros {
     if (!localStorage.getItem('bdLivro'))
       return false;
 
-    JSON.parse(localStorage.getItem('bdLivro')).forEach((livro) => {
+    JSON.parse(localStorage.getItem('bdLivro')).forEach((user) => {
 
-      livros.push(new Livro(livro._nome, livro._autor, livro._genero, livro._qtdTot, livro._qtdDisp));
+      livros.push(new Livro(user._nome, user._senha));
 
     });
 
@@ -118,5 +114,5 @@ class BdLivros {
     return livrosFiltradas;
 
   }
-
+  
 }

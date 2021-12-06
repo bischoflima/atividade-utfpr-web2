@@ -28,7 +28,7 @@ class Livro {
     this._autor = autor;
     this._genero = genero;
     this._qtdTot = qtdTot;
-    this._qtdDisp = qtdDisp;
+    this._qtDisp = qtdDisp;
   }
 
   isEquals(livro) {
@@ -36,12 +36,11 @@ class Livro {
   }
 
   isValid() {
-    return (
-      this._nome === '' ||
-      this._autor === '' ||
-      this._genero === '' ||
-      this._qtdTot === '' ||
-      this._qtDisp === '') ? false : true;
+    return (this._nome !== undefined &&
+      this._autor !== undefined &&
+      this._genero !== undefined &&
+      this._qtdTot !== undefined &&
+      this._qtDisp !== undefined) ? true : false;
   }
 
 }

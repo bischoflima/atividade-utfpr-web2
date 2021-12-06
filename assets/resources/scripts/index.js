@@ -74,20 +74,23 @@ function usuarioValido() {
   return valido;
 }
 
+
+document.getElementsByName('confirmar')[0].onclick = fazLogin;
+
 function fazLogin() {
-  'use strict';
+'use strict';
 
   if (usuarioValido()) location.href = 'home.html';
   else {
+    
     window.alert('Usuário ou senha incorreta');
     document.getElementById('user').focus();
   }
 
 }
 
-document.getElementsByName('confirmar')[0].onclick = fazLogin;
 
-document.addEventListener('keypress', function (event) {
+document.addEventListener('keypress', function () {
   'use strict';
 
   if (event.keyCode === 13) {
