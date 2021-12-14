@@ -1,88 +1,117 @@
-/*jshint esversion: 6 */
+'use strict';
 
 let bdLivros = new BdLivros();
 
-
 document.addEventListener('DOMContentLoaded', function () {
-  'use strict';
+
 
   var elems = document.querySelectorAll('.modal');
   var instances = M.Modal.init(elems);
 
 });
 
+$(document).ready(function () {
+  atualizaItensLista(),
+
+  $('thead').addClass('yellow-text text-ligthen-2'),
+
+  $('#remover').on('click', function () { 
+
+
+    let checkboxes = $('td>label>input');
+    let nomesLivros = [];
+    for (const checkbox of checkboxes) {
+      if(checkbox.checked && checkbox.id !== 'seleciona-todos'){
+        nomesLivros.push(checkbox.id);
+      }
+    }
+
+    if (nomesLivros.length > 0 && window.confirm('Deseja mesmo excluir o item?')) {
+      
+      bdLivros.removerRegistro(nomesLivros);
+      atualizaItensLista();
+
+    }
+
+  } );
+
+});
+
 let itensLista = function () {
-  'use strict';
+
 
   return document.querySelectorAll('.itens-lista');
 
 };
 
 document.querySelector('.voltar').addEventListener('click', () => {
-  'use strict';
+
 
   location.href = 'home.html';
 
 });
 
 function atualizaItensLista() {
-  'use strict';
+
 
   let livros = bdLivros.recuperarTodosRegistros();
 
   let textoTabela;
   textoTabela = ` 
-  <table id="tabela-listagem">
+<table id="tabela-listagem">
 
-    <tr class="itens-lista">
-    <td><label><input type="checkbox" id="seleciona-todos" onclick="checkBoxSelecionado(this)"/><span></span></label></td>
-    <td>Nome&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td>Autor&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td>Gênero&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<thead class="cabecalho-tabela">
+    <td><label><input type="checkbox" id="seleciona-todos"
+    onclick="checkBoxSelecionado(this)"/><span></span></label></td>
+    <td>Nome</td>
+    <td>Autor</td>
+    <td>Gênero</td>
     <td>Quantidade</td>
     <td>Disponível</td>
-  </tr>
-  
-  `;
+  </thead>
+`;
 
-  if (livros) {
-    let contador = 0;
+  if (livros.length > 0) {
     for (let livro of livros) {
       textoTabela += `
-        <tr class="itens-lista">
-          <td><label><input type="checkbox" class="item-da-lista" onclick="chackboxDesselecionado(this)"/><span>.</span></label></td>
-          <td>${livro._nome}&nbsp;&nbsp;&nbsp;&nbsp;</td>
-          <td>${livro._autor}&nbsp;&nbsp;&nbsp;&nbsp;</td>
-          <td>${livro._genero}&nbsp;&nbsp;&nbsp;&nbsp;</td>
-          <td>${livro._qtdTot}</td>
-          <td>${livro._qtdDisp}</td>
-        </tr>
-      `;
+      <tr class="itens-lista">
+        <td><label><input type="checkbox" class="item-da-lista" 
+        onclick="chackboxDesselecionado(this)" id="${livro._nome}"/><span>.</span></label></td>
+        <td>${livro._nome}</td>
+        <td>${livro._autor}</td>
+        <td>${livro._genero}</td>
+        <td>${livro._qtdTot}</td>
+        <td>${livro._qtdDisp}</td>
+      </tr>
+    `;
     }
   } else {
     textoTabela = `
-        <p class="itens-lista">NENHUM LIVRO CADASTRADO</p>
-      `;
+      <p class="itens-lista">NENHUM LIVRO CADASTRADO</p>
+    `;
   }
 
   function estilizaItensLista() {
     for (const item of itensLista()) {
       item.classList.add('yellow');
       item.classList.add('lighten-2');
-      item.style.width = '98%';
+      item.style.width = '95%';
       item.style.margin = '0.5em auto';
       item.style.borderRadius = '10px';
       item.style.fontSize = '1.5em';
     }
+
+    $('thead').addClass('yellow-text text-ligthen-2')
+
   }
 
   textoTabela += ` </table>`
-  document.querySelector('#listagem-livros').innerHTML = textoTabela;
+  $('#listagem-livros').html(textoTabela);
   estilizaItensLista();
 }
 
 window.formulario.onsubmit = () => {
-  'use strict';
+
 
   inputIsValid(document.forms.formulario.nome_livro);
   inputIsValid(document.forms.formulario.autor_livro);
@@ -97,14 +126,14 @@ window.formulario.onsubmit = () => {
 
     if (bdLivros.gravar(livro)) {
 
-      for(let item of document.querySelectorAll('.input-modal')) item.value = '';
+      for (let item of document.querySelectorAll('.input-modal')) item.value = '';
       atualizaItensLista();
       return true;
 
     } else {
       window.alert('Este livro já existe');
       return false;
-    
+
     }
 
   } else {
@@ -114,12 +143,10 @@ window.formulario.onsubmit = () => {
 
   }
 
-  
-
 };
 
 let buscaDadosTransformaLivro = () => {
-  'use strict';
+
 
   let nome = document.forms.formulario.nome_livro.value;
   let autor = document.forms.formulario.autor_livro.value;
@@ -132,7 +159,7 @@ let buscaDadosTransformaLivro = () => {
 };
 
 let inputIsValid = (campo) => {
-  'use strict';
+
 
   if (campo.value === '' || campo.value === undefined ||
     campo.value === null || campo.value.length < 3) {
@@ -149,7 +176,7 @@ let inputIsValid = (campo) => {
 };
 
 let inputNumberIsValid = (campo) => {
-  'use strict';
+
 
   if (campo.value === '' || campo.value === undefined || campo.value === null || parseInt(campo.value) < 1) {
 
@@ -167,14 +194,14 @@ let inputNumberIsValid = (campo) => {
 };
 
 let itensLista2 = function () {
-  'use strict';
+
 
   return document.querySelectorAll('.item-da-lista');
 
 };
 
 let chackboxDesselecionado = (botao) => {
-  'use strict';
+
 
   if (botao.checked === false) {
     document.querySelector('#seleciona-todos').checked = false;
@@ -191,7 +218,7 @@ let chackboxDesselecionado = (botao) => {
 };
 
 let checkBoxSelecionado = (botao) => {
-  'use strict';
+
   if (botao.checked) {
 
     for (let item of itensLista2()) {
@@ -207,3 +234,7 @@ let checkBoxSelecionado = (botao) => {
   }
 
 };
+
+
+// remover item da lista e do BD
+

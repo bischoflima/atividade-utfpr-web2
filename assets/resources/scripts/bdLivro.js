@@ -1,5 +1,3 @@
-/*jshint esversion: 6 */
-
 class BdLivros {
 
   constructor() {
@@ -12,7 +10,7 @@ class BdLivros {
 
   }
 
-  gravarLivroInicial(livro) {
+  gravarLivroInicial() {
     this.todosLivros = this.recuperarTodosRegistros();
 
     if (!this.todosLivros) {
@@ -60,6 +58,16 @@ class BdLivros {
 
   }
 
+
+  recuperaLivro(nome){
+    for (let livro of this.recuperarTodosRegistros()) {
+      if (livro._nome === nome) {
+        return livro;
+      }
+    }
+  }
+
+
   recuperarTodosRegistros() {
 
     let livros = [];
@@ -69,7 +77,8 @@ class BdLivros {
 
     JSON.parse(localStorage.getItem('bdLivro')).forEach((livro) => {
 
-      livros.push(new Livro(livro._nome, livro._autor, livro._genero, livro._qtdTot, livro._qtdDisp));
+      livros.push(new Livro(livro._nome, livro._autor,
+        livro._genero, livro._qtdTot, livro._qtdDisp));
 
     });
 
@@ -77,8 +86,22 @@ class BdLivros {
 
   }
 
-  removerRegistro(livro = undefined) {
-    // FIXME: criar a remoção de registros
+  removerRegistro(nomeLivro = undefined) {
+      if ( nomeLivro) {
+        let livros = this.recuperarTodosRegistros();
+
+        console.log('remove');
+
+        for (let indice in livros) {
+          for (let livro2 of nomeLivro) {
+            if (livros[indice]._nome === livro2) {
+              livros.splice(indice,1);
+            }
+          }
+        }
+
+        localStorage.setItem('bdLivro', JSON.stringify(livros));
+      }
   }
 
   pesquisar(livro) {

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="assets/libraries/materialize/materialize/css/materialize.min.css">
     <link rel="stylesheet" href="assets/libraries/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="assets/resources/styles/commom.css">
+    <link rel="stylesheet" href="assets/resources/styles/emprestar.css">
     <title>Biblioteca do Saber</title>
 </head>
 
@@ -23,8 +24,59 @@
 
     <!--CORPO-->
     <main class="yellow lighten-4">
+        <h4>Emprestimo de Livros</h4>
 
-        
+        <div class="botoes-de-controle">
+            <button data-target="addlivro"
+                class="fas fa-plus-circle botao-controle yellow darken-2 waves-effect waves-light modal-trigger"
+                href="#addlivro"></button>
+
+        </div>
+
+        <div id="listagem-emprestimo" class="grey darken-4 ">
+
+        </div>
+
+        <a class="waves-effect waves-light btn-large voltar grey-text yellow darken-2 text-darken-4 voltar">Voltar</a>
+
+
+
+        <!-- Modal cadastro de livro -->
+        <div id="addlivro" class="modal grey darken-4 yelow-text text-darken-4">
+            <div class="modal-content">
+                <h4 class="yellow-text text-darken-1">Emprestimo de Livro</h4>
+
+                <div class="row">
+
+                    <div class="col s12">
+
+                        <label>ALUNO</label>
+                        <select id="select_aluno" class="browser-default grey-text text-darken-4 yellow lighten-4">
+
+                        </select>
+                    </div>
+
+                    <div class="col s12">
+
+                        <label>LIVRO</label>
+                        <select id="select_livro" class="browser-default grey-text text-darken-4 yellow lighten-4">
+
+                        </select>
+                    </div>
+
+                    <div class="modal-footer grey darken-4 yelow-text text-darken-4 center row">
+                        <a href="#!" id="btncancelar"
+                            class="modal-close waves-effect waves-grey btn-flat grey darken-4 yellow-text text-darken-1 col s5 l2 btnmodal right">cancelar</a>
+                        <a id="btnconfirmar"
+                            class="waves-effect waves-grey btn-flat yellow darken-2 grey-text text-darken-4 col s6 l3 btnmodal right"
+                            >confirmar</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
 
     </main>
 
@@ -52,6 +104,15 @@
 
     <script src="assets/libraries/materialize/materialize/js/materialize.min.js"></script>
     <script src="assets/libraries/fontawesome/js/all.min.js"></script>
+    <script src="assets/libraries/jquery/jquery.js"></script>
+    <script src="assets/resources/scripts/classes.js"></script>
+    <script src="assets/resources/scripts/classe-aluno.js"></script>
+
+    <script src="assets/resources/scripts/bdLivro.js"></script>
+    <script src="assets/resources/scripts/bd-alunos.js"></script>
+
+    <script src="assets/resources/scripts/bd-emprestar.js"></script>
+    <script src="assets/resources/scripts/emprestimo.js"></script>
     <script src="assets/resources/scripts/emprestar.js"></script>
 </body>
 

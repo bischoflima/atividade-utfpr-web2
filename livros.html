@@ -9,10 +9,12 @@
     <link rel="stylesheet" href="assets/libraries/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="assets/resources/styles/commom.css">
     <link rel="stylesheet" href="assets/resources/styles/livros.css">
+    <script src="assets/libraries/jquery/jquery.js"></script>
+
     <title>Biblioteca do Saber</title>
 </head>
 
-<body class="grey darken-4" onload="atualizaItensLista()">
+<body class="grey darken-4">
     <!-- CABEÇALHO -->
     <nav class="grey darken-4 yellow-text text-darken-1 center">
         <div class="nav-wrapper">
@@ -30,13 +32,10 @@
             <button data-target="addlivro"
                 class="fas fa-plus-circle botao-controle yellow darken-2 waves-effect waves-light modal-trigger"
                 href="#addlivro"></button>
-            <button class="fas fa-pen botao-controle grey darken-4 waves-effect waves-light"></button>
-            <button class="fas fa-times-circle botao-controle yellow darken-2 waves-effect waves-light"></button>
+            <button class="fas fa-times-circle botao-controle yellow darken-2 waves-effect waves-light botao-remover" id="remover"></button>
         </div>
 
-        <div id="listagem-livros" class="grey darken-4 ">
-            
-               
+        <div id="listagem-livros" class="grey darken-4 "> 
            
         </div>
 
@@ -140,7 +139,6 @@
     <script src="assets/libraries/materialize/materialize/js/materialize.min.js"></script>
     <script src="assets/resources/scripts/common.js"></script>
     <script src="assets/libraries/fontawesome/js/all.min.js"></script>
-    <script src="assets/libraries/jquery/jquery.js"></script>
     <script src="assets/resources/scripts/bdLivro.js"></script>
     <script src="assets/resources/scripts/classes.js"></script>
     <script src="assets/resources/scripts/livros.js"></script>

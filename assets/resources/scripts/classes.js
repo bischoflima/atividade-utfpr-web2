@@ -1,5 +1,3 @@
-/*jshint esversion: 6 */
-
 class Pessoa {
 
   constructor(nome, senha) {
@@ -45,3 +43,4 @@ class Livro {
   }
 
 }
+

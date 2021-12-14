@@ -43,6 +43,10 @@
     width: 30px;
 }
 
+select {
+    color: rgb(226, 226, 93);
+}
+
 @media only screen and (max-width: 490px) {
     .modal {
         width: 90%;
