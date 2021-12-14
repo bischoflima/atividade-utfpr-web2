@@ -95,15 +95,15 @@ Aplicativo simples para uma biblioteca desenvolvido em ECMA SCRIPT 6
 ### jQuery
 - [x] Uso de seletores CSS - id, classe e tag
 - [x] Uso de seletores hierárquicos estáticos - ancestral/descendente, pai/filho, anterior/próximo
-- [ ] Uso de seletores hierárquicos dinâmicos - parent/children/next
+- [x] Uso de seletores hierárquicos dinâmicos - parent/children/next
 ### Efeitos fade ou slide
 - [x] Especificar o tratador de algum evento via jQuery
 - [x] Manipulação do CSS via função css() e addClass()/removeClass()
 - [x] Manipulação do conteúdo de um input e div usando jQuery
-- [ ] Aplicar um plugin do jQuery (por exemplo, jQuery Mask Plugin)
+- [x] Aplicar um plugin do jQuery (por exemplo, jQuery Mask Plugin)
 ### Web Storage
 - [x] LocalStorage ou SessionStorage
 - [x] Leitura e escrita de dados simples (tipos primitivos)
 - [x] Leitura e escrita de JSON
 ### Implementação funcional (basta fazer funcionar uma requisição) 
-- [ ] AJAX para uma API de terceiros (ex.: buscaCEP, IBGE) ou para a sua própria API criada com ExpressJS na plataforma Node.
+- [x] AJAX para uma API de terceiros (ex.: buscaCEP, IBGE) ou para a sua própria API criada com ExpressJS na plataforma Node.
