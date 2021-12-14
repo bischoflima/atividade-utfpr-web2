@@ -1,5 +1,3 @@
-/*jshint esversion: 6 */
-
 let minutosParados = 0;
 let timeout;
 let intervalo;
@@ -13,8 +11,6 @@ let redireciona = (local) => {
   location.href = `${local.innerText.trim().toLowerCase()}.html`;
 
 };
-
-/**
 
 let iniciaFimSessao = function () {
   'use strict';
@@ -52,5 +48,3 @@ if (location.href !== 'index.html') {
   }, 5000);
 
 }
-
- */
