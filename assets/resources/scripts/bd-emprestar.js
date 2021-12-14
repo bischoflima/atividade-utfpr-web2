@@ -58,7 +58,7 @@ class BDEmprestar {
       return false;
 
     emprestar.forEach((emprestimo) => {
-
+      
       emprestimos.push(new Emprestimo(emprestimo._aluno, emprestimo._livro));
 
     });
@@ -81,44 +81,6 @@ class BDEmprestar {
 
         localStorage.setItem('bdEmprestar', JSON.stringify(emprestar));
       }
-  }
-
-  pesquisar(Emprestar) {
-
-    let EmprestarFiltradas = this.recuperarTodosRegistros();
-
-    if (Emprestar._nome !== '') {
-      EmprestarFiltradas = EmprestarFiltradas.filter((d) => {
-        return d._nome === Emprestar._nome;
-      });
-    }
-
-    if (Emprestar.autor !== '') {
-      EmprestarFiltradas = EmprestarFiltradas.filter((d) => {
-        return d.autor === Emprestar.autor;
-      });
-    }
-
-    if (Emprestar._genero !== '') {
-      EmprestarFiltradas = EmprestarFiltradas.filter((d) => {
-        return d._genero === Emprestar._genero;
-      });
-    }
-
-    if (Emprestar._qtdTot !== '') {
-      EmprestarFiltradas = EmprestarFiltradas.filter((d) => {
-        return d._qtdTot === Emprestar._qtdTot;
-      });
-    }
-
-    if (Emprestar._qtdDisp !== '') {
-      EmprestarFiltradas = EmprestarFiltradas.filter((d) => {
-        return d._qtdDisp === Emprestar._qtdDisp;
-      });
-    }
-
-    return EmprestarFiltradas;
-
   }
 
 }

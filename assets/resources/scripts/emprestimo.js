@@ -1,5 +1,5 @@
 class Emprestimo {
-    constructor (Livro, Aluno) {
+    constructor (Aluno, Livro) {
         this._aluno = Aluno;
         this._livro = Livro;
     }
