@@ -1,6 +1,7 @@
 # __BIBLIOTECA DO SABER__
 Aplicativo simples para uma biblioteca desenvolvido em ECMA SCRIPT 6
-GitHub Pages https://bischoflima.github.io/
+O intuito é desenvolver uma aplicação simples que contemple todos os desafios propostos pelo professor
+Os dados são armazenados no proprio Web Storage
 # __AVALIAÇÃO 1__
 
 ### Caixas de Diálogo
